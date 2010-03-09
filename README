@@ -1,1 +1,7 @@
 A basic attempt at simple game development in JavaScript.
+
+See LICENSE file for licensing information.
+
+This small experiment is heavily inspired by the kongregate.com "Shootorials"
+and all graphics are taken from there. The Shootorials can be accessed at:
+http://www.kongregate.com/labs
