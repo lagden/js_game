@@ -28,7 +28,7 @@ document.observe("dom:loaded", function() {
         break;
     }
     
-    // Move the ship to it's new position.
+    // Move the ship to its new position.
     $("ship").style.top = top + "px";
     $("ship").style.left = left + "px";
   });
