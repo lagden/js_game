@@ -1,0 +1,14 @@
+#canvas {
+  border: 1px solid;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  width: 600px;
+}
+
+#ship {
+  background-image: url('assets/ship.png');
+  height: 37px;
+  position: absolute;
+  width: 79px;
+}
