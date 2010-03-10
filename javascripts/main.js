@@ -1,6 +1,10 @@
 // wait till the page has loaded before observing events
 document.observe("dom:loaded", function() {
   
+  // Create and insert the Ship element
+  var ship = new Element("div", { id: "ship" });
+  $("canvas").insert(ship);
+  
   // observe keypress events
   document.observe("keypress", function(event) {
     
