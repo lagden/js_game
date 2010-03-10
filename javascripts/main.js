@@ -1,3 +1,30 @@
+var Key = (function() {
+  var pressed = {};
+  
+  function isDown(keyCode) {
+    return pressed[keyCode] === true;
+  }
+  
+  function down(keyCode) {
+    pressed[keyCode] = true;
+  }
+  
+  function up(keyCode) {
+    delete pressed[keyCode];
+  }
+  
+  return {
+    LEFT:  37,
+    UP:    38,
+    RIGHT: 39,
+    DOWN:  40,
+    
+    isDown: isDown,
+    down:   down,
+    up:     up
+  };
+})();
+
 // wait till the page has loaded before observing events
 document.observe("dom:loaded", function() {
   

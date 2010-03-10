@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Key unit test</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="assets/unittest.css" type="text/css" charset="utf-8">
+  <script type="text/javascript" src="../javascripts/vendor/prototype.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/unittest.js" charset="utf-8"></script>
+  <script type="text/javascript" src="../javascripts/main.js" charset="utf-8"></script>
+  
+  <script type="text/javascript" charset="utf-8">
+    new Test.Unit.Runner({
+      testKeyDownAndKeyUp: function(){
+        this.assert(!Key.isDown(Key.LEFT));
+        Key.down(Key.LEFT);
+        this.assert(Key.isDown(Key.LEFT));
+        Key.up(Key.LEFT)
+        this.assert(!Key.isDown(Key.LEFT));
+      }
+    });
+  </script>
+</head>
+<body>
+<div id="testlog"></div>
+</body>
+</html>
