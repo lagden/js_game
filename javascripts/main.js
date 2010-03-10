@@ -25,6 +25,33 @@ var Key = (function() {
   };
 })();
 
+function draw() {
+  var ship = $("ship"),
+    left = parseInt(ship.style.left) || 0,
+    top = parseInt(ship.style.top) || 0;
+  
+  if (Key.isDown(Key.LEFT)) {
+    left--;
+  }
+  if (Key.isDown(Key.RIGHT)) {
+    left++;
+  }
+  if (Key.isDown(Key.UP)) {
+    top--;
+  }
+  if (Key.isDown(Key.DOWN)) {
+    top++;
+  }
+  
+  ship.style.left = left + "px";
+  ship.style.top = top + "px";
+}
+
+function tick() {
+  draw();
+  setTimeout(tick, 20);
+}
+
 // wait till the page has loaded before observing events
 document.observe("dom:loaded", function() {
   
@@ -33,34 +60,14 @@ document.observe("dom:loaded", function() {
   $("canvas").insert(ship);
   
   // observe keypress events
-  document.observe("keypress", function(event) {
-    
-    // top and left represent the x and y position
-    // of our ship from the top left corner.
-    var top = (parseInt($("ship").style.top) || 0),
-      left = (parseInt($("ship").style.left) || 0);
-    
-    // Move the ship based on the pressed keys
-    switch (event.keyCode) {
-      case 37: // Left arrow
-        left--;
-        break;
-      
-      case 38: // Up arrow
-        top--;
-        break;
-      
-      case 39: // Right arrow
-        left++;
-        break;
-      
-      case 40: // Down arrow
-        top++;
-        break;
-    }
-    
-    // Move the ship to its new position.
-    $("ship").style.top = top + "px";
-    $("ship").style.left = left + "px";
+  document.observe("keydown", function(event) {
+    Key.down(event.keyCode);
   });
+  
+  document.observe("keyup", function(event) {
+    Key.up(event.keyCode);
+  });
+  
+  // Start the timer
+  tick();
 });
