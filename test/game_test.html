@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Key unit test</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="assets/unittest.css" type="text/css" charset="utf-8">
+  <script type="text/javascript" src="../javascripts/vendor/prototype.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/unittest.js" charset="utf-8"></script>
+  <script type="text/javascript" src="../javascripts/game.js" charset="utf-8"></script>
+  
+  <script type="text/javascript" charset="utf-8">
+    new Test.Unit.Runner({
+      setup: function() {
+        // Disable the tick loop
+        this.oldGameTick = Game.tick;
+        Game.tick = function() {};
+      },
+      
+      teardown: function() {
+        Game.tick = this.oldGameTick;
+      },
+      
+      testInitializeAddsShipToCanvas: function() {
+        Game.initialize();
+        this.assert($$('#canvas #ship').size() === 1);
+      }
+    });
+  </script>
+</head>
+<body>
+<div id="testlog"></div>
+<div id="canvas"></div>
+</body>
+</html>
