@@ -6,12 +6,12 @@ var Game = (function() {
     ship = new Element("div", { id: "ship" });
     $("canvas").insert(ship);
     
-    tick();
+    this.tick();
   }
   
   function tick() {
-    draw();
-    setTimeout(tick, 20);
+    this.draw();
+    setTimeout(this.tick, 20);
   }
   
   function draw() {
