@@ -11,7 +11,7 @@ var Game = (function() {
   
   function tick() {
     this.draw();
-    setTimeout(this.tick, 20);
+    setTimeout(this.tick.bind(this), 20);
   }
   
   function draw() {
