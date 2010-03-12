@@ -12,3 +12,11 @@
   position: absolute;
   width: 79px;
 }
+
+#background {
+  background-image: url('assets/scrollingBackground.jpg');
+  background-repeat: repeat;
+  height: 300px;
+  position: absolute;
+  width: 4220px;
+}
