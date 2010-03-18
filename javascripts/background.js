@@ -7,6 +7,9 @@ var Background = Class.create(Sprite, (function() {
   
   function onEnterFrame() {
     this._x = this._x - 1;
+    if (this._x < -2110) {
+      this._x = 0;
+    }
   }
   
   return {
