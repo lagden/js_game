@@ -15,6 +15,12 @@ var Game = (function() {
   function addSprite(sprite) {
     this.sprites.push(sprite);
   }
+  
+  function removeSprite(sprite) {
+    this.sprites = this.sprites.reject(function(item) {
+      return item === sprite;
+    });
+  }
 
   var TICKS_PER_SECOND = 50;
   var SKIP_TICKS = 1000 / TICKS_PER_SECOND;
@@ -49,6 +55,7 @@ var Game = (function() {
     draw:         draw,
     tick:         tick,
     update:       update,
-    addSprite:    addSprite
+    addSprite:    addSprite,
+    removeSprite: removeSprite
   };
 }());
