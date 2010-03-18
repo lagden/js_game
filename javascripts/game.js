@@ -1,12 +1,12 @@
 var Game = (function() {
-  var ship, background;
-  
   function initialize() {
+    this.sprites = [];
+
     // Create the background
-    background = new Background();
-    
+    this.sprites.push(new Background());
+
     // Create the Ship
-    ship = new Ship();
+    this.sprites.push(new Ship());
     
     // Start the tick loop
     this.tick();
@@ -33,13 +33,11 @@ var Game = (function() {
   }
   
   function draw() {
-    background.draw();
-    ship.draw();
+    this.sprites.invoke("draw");
   }
   
   function update() {
-    background.update();
-    ship.update();
+    this.sprites.invoke("update");
   }
   
   return {
