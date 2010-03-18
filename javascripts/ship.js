@@ -5,12 +5,19 @@ var Ship = Class.create(Sprite, (function() {
     
     this.speed = 5;
     this.shootLimiter = 0;
+    this.enemyTimer = 0;
     
     $super(el);
   }
   
   function update() {
     this.shootLimiter++;
+    this.enemyTimer++;
+    
+    if (this.enemyTimer > 60) {
+      this.enemyTimer = 0;
+      Game.addSprite(new EnemyShip());
+    }
     
     if (Key.isDown(Key.LEFT)) {
       this._x -= this.speed;
