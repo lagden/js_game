@@ -8,7 +8,7 @@ var Ship = Class.create(Sprite, (function() {
     $super(el);
   }
   
-  function onEnterFrame() {
+  function update() {
     if (Key.isDown(Key.LEFT)) {
       this._x -= this.speed;
     }
@@ -24,7 +24,7 @@ var Ship = Class.create(Sprite, (function() {
   }
   
   return {
-    initialize:   initialize,
-    onEnterFrame: onEnterFrame,
+    initialize: initialize,
+    update:     update
   };
 })());

@@ -5,7 +5,7 @@ var Background = Class.create(Sprite, (function() {
     $super(el);
   }
   
-  function onEnterFrame() {
+  function update() {
     this._x = this._x - 1;
     if (this._x < -2110) {
       this._x = 0;
@@ -13,7 +13,7 @@ var Background = Class.create(Sprite, (function() {
   }
   
   return {
-    initialize:   initialize,
-    onEnterFrame: onEnterFrame
+    initialize: initialize,
+    update:     update
   };
 })());

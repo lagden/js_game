@@ -7,7 +7,7 @@ var Sprite = Class.create((function() {
     this._y = parseInt(this._style.top) || 0;
   }
   
-  function onEnterFrame() {
+  function update() {
     
   }
   
@@ -17,8 +17,8 @@ var Sprite = Class.create((function() {
   }
   
   return {
-    initialize:   initialize,
-    onEnterFrame: onEnterFrame,
-    draw:         draw
+    initialize: initialize,
+    update:     update,
+    draw:       draw
   };
 })());
