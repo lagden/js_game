@@ -20,3 +20,10 @@
   position: absolute;
   width: 4220px;
 }
+
+.missile {
+  background-image: url('assets/missile.png');
+  height: 7px;
+  width: 15px;
+  position: absolute;
+}
