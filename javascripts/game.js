@@ -3,13 +3,17 @@ var Game = (function() {
     this.sprites = [];
 
     // Create the background
-    this.sprites.push(new Background());
+    this.addSprite(new Background());
 
     // Create the Ship
-    this.sprites.push(new Ship());
+    this.addSprite(new Ship());
     
     // Start the tick loop
     this.tick();
+  }
+
+  function addSprite(sprite) {
+    this.sprites.push(sprite);
   }
 
   var TICKS_PER_SECOND = 50;
@@ -31,7 +35,7 @@ var Game = (function() {
     this.draw();
     setTimeout(this.tick.bind(this), 1);
   }
-  
+
   function draw() {
     this.sprites.invoke("draw");
   }
@@ -44,6 +48,7 @@ var Game = (function() {
     initialize:   initialize,
     draw:         draw,
     tick:         tick,
-    update:       update
+    update:       update,
+    addSprite:    addSprite
   };
 }());
